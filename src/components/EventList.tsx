@@ -103,7 +103,7 @@ export default function EventList() {
 
     try {
       setIsDeleting(true);
-      toast.loading("Deleting events...");
+      const toastId = toast.loading("Deleting events...");
 
       const response = await fetch("/api/events/delete", {
         method: "POST",
@@ -118,12 +118,14 @@ export default function EventList() {
       }
 
       const result = await response.json();
+      toast.dismiss(toastId);
       toast.success(result.message);
 
       // Remove deleted events from the list
       setEvents(events.filter((event) => !selectedEvents.includes(event.id)));
       setSelectedEvents([]);
     } catch (err) {
+      toast.dismiss(); // Dismiss any loading toasts
       toast.error("Failed to delete events. Please try again.");
       console.error(err);
     } finally {

@@ -20,7 +20,7 @@ export default function LoginButton() {
       <Button
         onClick={() => signOut()}
         variant="destructive"
-        className="w-full md:w-auto"
+        className="w-full md:w-auto cursor-pointer"
       >
         Sign Out
       </Button>
@@ -30,7 +30,7 @@ export default function LoginButton() {
   return (
     <Button
       onClick={() => signIn("google")}
-      className="w-full md:w-auto flex items-center gap-2"
+      className="w-full md:w-auto flex items-center gap-2 cursor-pointer bg-blue-500"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
