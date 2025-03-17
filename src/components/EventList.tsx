@@ -265,6 +265,7 @@ export default function EventList() {
             <Button
               onClick={handleDeleteSelected}
               disabled={selectedEvents.length === 0 || isDeleting}
+              className="bg-red-500 cursor-pointer"
               variant="destructive"
               size="sm"
             >
